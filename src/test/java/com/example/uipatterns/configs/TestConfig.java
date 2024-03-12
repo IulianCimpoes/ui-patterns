@@ -15,7 +15,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 @Configuration
 @ComponentScan(basePackages = {"com.example.uipatterns.services", "com.example.uipatterns.pages",
-        "com.example.uipatterns.configs"})
+        "com.example.uipatterns.configs", "com.example.uipatterns.actions"})
 @EnableConfigurationProperties(value = AppConfig.class)
 @ContextConfiguration(initializers = ConfigDataApplicationContextInitializer.class)
 public class TestConfig implements ApplicationContextAware {

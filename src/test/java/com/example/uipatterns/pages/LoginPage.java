@@ -1,12 +1,10 @@
 package com.example.uipatterns.pages;
 
 
-import com.example.uipatterns.configs.AppConfig;
 import lombok.Getter;
 import lombok.Setter;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -19,9 +17,6 @@ public class LoginPage extends BasePage {
         this(URL);
     }
 
-    @Autowired
-    AppConfig appConfig;
-
     public LoginPage(String url) {
         super(url);
     }
@@ -29,6 +24,14 @@ public class LoginPage extends BasePage {
     @FindBy(id = "username")
     WebElement username;
 
-    @FindBy(className = "display-6")
-    WebElement formName;
+    @FindBy(xpath = "//h1[@class='display-6']")
+    WebElement loginForm;
+
+    @FindBy(xpath = "//label[contains(.,'Login')]")
+    WebElement usernameLabel;
+
+    @FindBy(xpath = "//label[contains(.,'Password')]")
+    WebElement passwordLabel;
+
+
 }

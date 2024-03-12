@@ -8,19 +8,33 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.springframework.stereotype.Component;
 
 @Getter
 @Setter
-
 public class BasePage {
 
     @FindBy(className = "display-4")
     WebElement head;
+
     @FindBy(xpath = "//h5")
     WebElement subhead;
+
     @FindBy(tagName = "a")
     WebElement githubLink;
+
+    @FindBy(xpath = "/html/..//hr")
+    WebElement horizontalRule;
+
+    @FindBy(xpath = "//footer//span")
+    WebElement footerText;
+
+    @FindBy(xpath = "//footer//span//a")
+    WebElement footerLink;
+
+
     private WebDriver webDriver;
+
     private String basicPath;
 
     public BasePage(String url) {
