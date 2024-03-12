@@ -20,10 +20,29 @@
 		<java.version>17</java.version>
 		<selenium.version>4.16.1</selenium.version>
 		<wdm.version>5.6.3</wdm.version>
-		<cucumber.version>7.15.0</cucumber.version>
 		<junit-platform.version>1.10.1</junit-platform.version>
-		<cucumber.version>7.15.0</cucumber.version>
+<!--		<cucumber.version>7.15.0</cucumber.version>-->
+		<cucumber.version>6.10.4</cucumber.version>
 	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.junit</groupId>
+				<artifactId>junit-bom</artifactId>
+				<version>5.10.2</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>io.cucumber</groupId>
+				<artifactId>cucumber-bom</artifactId>
+				<version>7.15.0</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<dependencies>
 		<dependency>
@@ -71,33 +90,85 @@
 		<dependency>
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-launcher</artifactId>
-			<version>${junit-platform.version}</version>
+<!--			<version>${junit-platform.version}</version>-->
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-suite</artifactId>
-			<version>${junit-platform.version}</version>
+<!--			<version>${junit-platform.version}</version>-->
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-java</artifactId>
-			<version>${cucumber.version}</version>
+<!--			<version>${cucumber.version}</version>-->
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-spring</artifactId>
-			<version>${cucumber.version}</version>
+<!--			<version>${cucumber.version}</version>-->
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-junit-platform-engine</artifactId>
-			<version>${cucumber.version}</version>
+<!--			<version>${cucumber.version}</version>-->
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-gherkin</artifactId>
+<!--			<version>7.13.0</version>-->
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.epam.reportportal</groupId>
+			<artifactId>agent-java-junit5</artifactId>
+			<version>5.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.epam.reportportal</groupId>
+			<artifactId>agent-java-cucumber6</artifactId>
+			<version>5.3.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.epam.reportportal</groupId>
+			<artifactId>logger-java-log4j</artifactId>
+			<version>5.1.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.17.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.17.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.epam.reportportal</groupId>
+			<artifactId>logger-java-logback</artifactId>
+			<version>5.1.1</version>
 		</dependency>
 
 	</dependencies>
@@ -126,6 +197,11 @@
 					<includes>
 						<exclude>**/*CucumberTest.java</exclude>
 					</includes>
+					<properties>
+						<configurationParameters>
+							junit.jupiter.extensions.autodetection.enabled = true
+						</configurationParameters>
+					</properties>
 				</configuration>
 			</plugin>
 
