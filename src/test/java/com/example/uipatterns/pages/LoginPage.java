@@ -12,26 +12,19 @@ import org.springframework.stereotype.Component;
 @Setter
 public class LoginPage extends BasePage {
     final private static String URL = "login-form.html";
-
-    public LoginPage() {
-        this(URL);
-    }
-
-    public LoginPage(String url) {
-        super(url);
-    }
-
     @FindBy(id = "username")
     WebElement username;
-
     @FindBy(xpath = "//h1[@class='display-6']")
     WebElement loginForm;
-
     @FindBy(xpath = "//label[contains(.,'Login')]")
     WebElement usernameLabel;
-
     @FindBy(xpath = "//label[contains(.,'Password')]")
     WebElement passwordLabel;
+
+    public LoginPage() {
+        super();
+        initElements();
+    }
 
 
 }

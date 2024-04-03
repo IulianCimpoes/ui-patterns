@@ -15,7 +15,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 @Configuration
 @ComponentScan(basePackages = {"com.example.uipatterns.services", "com.example.uipatterns.pages",
-        "com.example.uipatterns.configs", "com.example.uipatterns.actions"})
+        "com.example.uipatterns.configs", "com.example.uipatterns.actions", "com.example.uipatterns.context"})
 @EnableConfigurationProperties(value = AppConfig.class)
 @ContextConfiguration(initializers = ConfigDataApplicationContextInitializer.class)
 public class TestConfig implements ApplicationContextAware {
@@ -33,9 +33,10 @@ public class TestConfig implements ApplicationContextAware {
         applicationContext = context;
     }
 
-    @Bean
-    public WebDriver webDriver() {
+//    @Bean
+//    public WebDriver webDriver() {
+//
+//        return (new WebDriverService(appConfig.getBrowser())).getWebDriver();
+//    }
 
-        return (new WebDriverService(appConfig.getBrowser())).getWebDriver();
-    }
 }
